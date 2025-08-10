@@ -44,3 +44,15 @@ class Solution {
 }
 
 // optimal: count the number of times, an element the pattern of sorting breaks, if its once or zero, it's rotated and sorted, if more than once, not rotated and sorted
+class Solution {
+    public boolean check(int[] nums) {
+        int n=nums.length;
+        int count=0;
+
+        for(int i=0;i<n;i++)
+        {
+            if(nums[i]>nums[ (i+1)%n ]) count++;
+        }
+        return count<=1;
+    }
+}
