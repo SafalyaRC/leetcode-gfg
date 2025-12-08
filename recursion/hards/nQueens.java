@@ -7,7 +7,7 @@ class Solution {
         // we only check for left, upper-left & lower-left diagonal as for a specific value of col, we havent yet gone to the right so it's unneccsary to check for other directions concerning the right as they havent beem explored yet
 
         // check in the left direction:
-        for (int j = 0; j < col; j++) {
+        for (int j = col; j >= 0; j++) {
             if (board[row][j] == 'Q')
                 return false;
         }
@@ -82,7 +82,7 @@ public class nQueens {
                 upperDiagonal[row + col] = 1;
                 lowerDiagonal[n - 1 + col - row] = 1;
 
-                backtrack(board, ans, leftRow, upperDiagonal, lowerDiagonal, n, col + 1); // recursive call for next row
+                backtrack(board, ans, leftRow, upperDiagonal, lowerDiagonal, n, col + 1); // recursive call for next col
 
                 // unplace queen and unmark the boolean arrays to revert back to previous stage
                 board[row][col] = '.';
